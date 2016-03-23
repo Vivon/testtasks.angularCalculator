@@ -58,7 +58,7 @@ function CalculatorController($scope, $http, $templateCache) {
     $scope.calculate = function () {
         if (calcInfo.firstArgument) {
             calcInfo.secondArgument = $scope.output;
-            $http.post(OPERATION_SERVER_METHOD, data, $templateCache)
+            $http.post(OPERATION_SERVER_METHOD, calcInfo, $templateCache)
                 .then(successResponse, errorResponse);
         }
     };

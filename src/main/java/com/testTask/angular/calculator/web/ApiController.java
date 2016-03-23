@@ -23,11 +23,14 @@ public class ApiController {
     @Autowired
     private SimpleOperationServiceI simpleOperationService;
 
+    /**
+     * Method for simple arithmetic operation(+, -, *, /)
+     * @param simpleOperationRequest request for operation
+     * @return result of operation
+     * @throws ServiceException
+     */
     @RequestMapping(value = "doSimpleArithmeticOperation", method = RequestMethod.POST)
     public @ResponseBody SimpleOperationResponseI doSimpleArithmeticOperation(@RequestBody SimpleOperationRequest simpleOperationRequest) throws ServiceException {
-        Double result = simpleOperationService.doOperation(simpleOperationRequest);
-        LOGGER.info("RESULT IS " + result);
-        System.out.printf("RESULT IS " + result);
-        return new SimpleOperationResponse(result);
+        return new SimpleOperationResponse(simpleOperationService.doOperation(simpleOperationRequest));
     }
 }

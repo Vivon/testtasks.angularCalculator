@@ -3,7 +3,7 @@
 <html ng-app="CalculatorModule">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link rel='stylesheet' href="static/bootstrap/3.2.0/css/bootstrap.css">
+    <link rel='stylesheet' href="static/bootstrap/css/bootstrap.css">
     <script type='text/javascript' src="static/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="static/angularjs/angular.min.js"></script>
     <script type='text/javascript' src="resources/js/calculator.js"></script>
@@ -104,6 +104,6 @@
         </div>
     </div>
 </div>
-<script type='text/javascript' src="static/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script type='text/javascript' src="static/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
