@@ -8,6 +8,7 @@ import com.testTask.angular.calculator.operation.arithmetic.simple.Multiplicatio
 import com.testTask.angular.calculator.operation.arithmetic.simple.SubtractionOperation;
 import com.testTask.angular.calculator.operation.arithmetic.simple.SumOperation;
 import com.testTask.angular.calculator.service.arithmeticOperation.input.SimpleOperationRequestI;
+import com.testTask.angular.calculator.validator.SimpleOperationRequestValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,8 +27,12 @@ public class SimpleOperationService implements SimpleOperationServiceI {
     @Autowired
     private DivisionOperation divisionOperation;
 
+    @Autowired
+    private SimpleOperationRequestValidator simpleOperationRequestValidator;
+
     @Override
     public Double doOperation(SimpleOperationRequestI simpleOperationRequest) throws ServiceException {
+        simpleOperationRequestValidator.validate(simpleOperationRequest);
         OperationI<Double> operation = getOperation(simpleOperationRequest);
         return operation.doOperation(simpleOperationRequest.getFirstArgument(), getSecondArgument(simpleOperationRequest));
     }

@@ -11,4 +11,9 @@ public class ServiceException extends Exception {
     public ErrorNumber getErrorNumber() {
         return errorNumber;
     }
+
+    @Override
+    public String getMessage() {
+        return errorNumber.getErrorMessage();
+    }
 }
