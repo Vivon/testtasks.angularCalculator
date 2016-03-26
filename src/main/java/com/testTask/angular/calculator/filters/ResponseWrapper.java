@@ -5,15 +5,18 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletResponseWrapper;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class ResponseWrapper extends HttpServletResponseWrapper {
 
     private ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
     private ServletOutputStream servletOutputStream;
+    private PrintWriter printWriter;
 
     public ResponseWrapper(HttpServletResponse response, ServletOutputStream servletOutputStream) {
         super(response);
         this.servletOutputStream = servletOutputStream;
+        this.printWriter = new PrintWriter(servletOutputStream);
     }
 
     public byte[] getResponseBytes() {
@@ -23,6 +26,11 @@ public class ResponseWrapper extends HttpServletResponseWrapper {
     @Override
     public ServletOutputStream getOutputStream() throws IOException {
         return new ProxyOutputStream(byteArrayOutputStream, servletOutputStream);
+    }
+
+    @Override
+    public PrintWriter getWriter() throws IOException {
+        return printWriter;
     }
 
     private static class ProxyOutputStream extends ServletOutputStream {

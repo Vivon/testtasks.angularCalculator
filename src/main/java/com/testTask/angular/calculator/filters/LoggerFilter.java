@@ -30,6 +30,7 @@ public class LoggerFilter implements Filter {
                 new RequestWrapper((HttpServletRequest) request, IOUtils.toByteArray(request.getInputStream()));
         ResponseWrapper responseWrapper =
                 new ResponseWrapper((HttpServletResponse) response, response.getOutputStream());
+
         loggingRequest(requestWrapper);
         chain.doFilter(requestWrapper, responseWrapper);
         loggingResponse(responseWrapper);

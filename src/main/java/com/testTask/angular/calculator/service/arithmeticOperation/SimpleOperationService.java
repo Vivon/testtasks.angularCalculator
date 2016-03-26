@@ -53,4 +53,24 @@ public class SimpleOperationService implements SimpleOperationServiceI {
             default: throw new NotSupportedOperationException();
         }
     }
+
+    void setSumOperation(SumOperation sumOperation) {
+        this.sumOperation = sumOperation;
+    }
+
+    void setSubtractionOperation(SubtractionOperation subtractionOperation) {
+        this.subtractionOperation = subtractionOperation;
+    }
+
+    void setMultiplicationOperation(MultiplicationOperation multiplicationOperation) {
+        this.multiplicationOperation = multiplicationOperation;
+    }
+
+    void setDivisionOperation(DivisionOperation divisionOperation) {
+        this.divisionOperation = divisionOperation;
+    }
+
+    void setSimpleOperationRequestValidator(SimpleOperationRequestValidator simpleOperationRequestValidator) {
+        this.simpleOperationRequestValidator = simpleOperationRequestValidator;
+    }
 }

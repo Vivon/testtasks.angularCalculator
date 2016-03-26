@@ -1,5 +1,8 @@
 package com.testTask.angular.calculator.common;
 
+/**
+ * The parent of all exception
+ */
 public class ServiceException extends Exception {
 
     private ErrorNumber errorNumber;
